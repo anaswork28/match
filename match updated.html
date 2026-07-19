@@ -1,0 +1,1424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MATCH — Premium Heritage Clothing</title>
+
+<!-- Favicon & Social Meta Tags (OG) -->
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta property="og:title" content="MATCH — Premium Heritage Clothing">
+<meta property="og:description" content="Genuine Ralph Lauren linen shirts, verified original.">
+<meta property="og:image" content="https://shorelineshop.co/cdn/shop/files/IMG-2653.png">
+<meta property="og:url" content="https://your-domain.com">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800;900&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* =========================================================
+   DESIGN TOKENS
+   ========================================================= */
+:root{
+  --navy: #14213D;
+  --navy-dark: #0B1526;
+  --navy-soft: rgba(20,33,61,0.08);
+  --cream: #F7F1E3;
+  --cream-deep: #EFE6D2;
+  --cream-card: #FBF7ED;
+  --gold: #B68D40;
+  --gold-light: #D4AF6A;
+  --forest: #2F4A3C;
+  --burgundy: #5C2A2A;
+  --ink: #211D17;
+  --ink-soft: #5C5648;
+  --white: #FFFFFF;
+  --line: rgba(20,33,61,0.14);
+
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body: 'EB Garamond', Georgia, serif;
+  --font-utility: 'Jost', 'Helvetica Neue', Arial, sans-serif;
+
+  --container: 1240px;
+  --nav-h: 92px;
+}
+
+*,*::before,*::after{ box-sizing:border-box; }
+html{ scroll-behavior:smooth; }
+body{
+  margin:0;
+  background:var(--cream);
+  color:var(--ink);
+  font-family:var(--font-body);
+  font-size:18px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+img,svg{ display:block; max-width:100%; }
+a{ color:inherit; text-decoration:none; }
+button{ font-family:inherit; cursor:pointer; }
+.container{ max-width:var(--container); margin:0 auto; padding:0 40px; }
+section{ scroll-margin-top: var(--nav-h); }
+
+.eyebrow{
+  font-family:var(--font-utility);
+  font-size:12px;
+  letter-spacing:0.22em;
+  text-transform:uppercase;
+  color:var(--gold);
+  font-weight:500;
+}
+.section-head{ text-align:center; max-width:640px; margin:0 auto 56px; }
+.section-head h2{
+  font-family:var(--font-display);
+  font-size:clamp(32px,4vw,44px);
+  font-weight:700;
+  margin:10px 0 14px;
+  color:var(--navy);
+}
+.section-head p{ color:var(--ink-soft); font-size:19px; margin:0; }
+.divider-mark{ width:48px; height:2px; background:var(--gold); margin:18px auto 0; }
+
+.btn{
+  display:inline-flex; align-items:center; justify-content:center; gap:10px;
+  font-family:var(--font-utility);
+  font-size:13px; letter-spacing:0.14em; text-transform:uppercase; font-weight:500;
+  padding:16px 34px;
+  border-radius:2px;
+  border:1px solid transparent;
+  transition:all .25s ease;
+  white-space:nowrap;
+}
+.btn-primary{ background:var(--navy); color:var(--cream); border-color:var(--navy); }
+.btn-primary:hover{ background:var(--navy-dark); }
+.btn-secondary{ background:transparent; color:var(--navy); border-color:var(--navy); }
+.btn-secondary:hover{ background:var(--navy-soft); }
+.btn-gold{ background:var(--gold); color:var(--navy-dark); border-color:var(--gold); }
+.btn-gold:hover{ background:var(--gold-light); }
+.btn:disabled{ opacity:0.5; cursor:not-allowed; }
+.btn-block{ width:100%; }
+
+/* =========================================================
+   1. TOP UTILITY BAR + NAVIGATION
+   ========================================================= */
+.global-error-banner {
+  display: none; background: #A00; color: #FFF; text-align: center; 
+  padding: 10px 20px; font-family: var(--font-utility); font-size: 14px;
+}
+.utility-bar{
+  background:var(--navy-dark); color:var(--cream);
+  overflow:hidden; white-space:nowrap; position:relative;
+}
+.marquee-track{
+  display:inline-flex; align-items:center;
+  animation:marqueeScroll 22s linear infinite;
+  padding:10px 0;
+}
+.marquee-track span{
+  font-family:var(--font-utility); font-size:11.5px; letter-spacing:0.14em; text-transform:uppercase;
+  padding:0 28px; display:inline-flex; align-items:center; gap:10px;
+}
+.marquee-track span::after{ content:'✦'; color:var(--gold-light); margin-left:28px; }
+@keyframes marqueeScroll{
+  0%{ transform:translateX(0); }
+  100%{ transform:translateX(-50%); }
+}
+
+.navbar{
+  position:sticky; top:0; z-index:200;
+  background:var(--cream); border-bottom:1px solid var(--line);
+  transition:padding .25s ease, box-shadow .25s ease;
+}
+.navbar.scrolled{ box-shadow:0 6px 24px rgba(20,33,61,0.08); }
+
+.nav-inner{
+  max-width:var(--container); margin:0 auto; padding:0 40px;
+  height:var(--nav-h);
+  display:grid; grid-template-columns:1fr auto 1fr; align-items:center;
+  transition:height .25s ease;
+}
+.navbar.scrolled .nav-inner{ height:72px; }
+
+.nav-links{ display:flex; gap:28px; align-items:center; transition: opacity 0.2s ease; }
+.nav-links.fade-out { opacity: 0; pointer-events: none; }
+.nav-links a{
+  font-family:var(--font-utility); font-size:13px; letter-spacing:0.12em; text-transform:uppercase;
+  color:var(--navy); position:relative; padding:6px 0;
+}
+.nav-links a::after{
+  content:''; position:absolute; left:0; bottom:0; width:0; height:1px; background:var(--gold);
+  transition:width .25s ease;
+}
+.nav-links a:hover::after{ width:100%; }
+
+.search-trigger-btn, .cart-trigger-btn {
+  background: none; border: none; padding: 0; display: flex; align-items: center; justify-content: center;
+  height: 40px; width: 40px; color: var(--navy); cursor: pointer; flex-shrink: 0; position: relative;
+}
+.search-trigger-btn svg, .cart-trigger-btn svg { width: 18px; height: 18px; color: var(--navy); transition: color 0.2s ease; }
+.search-trigger-btn:hover svg, .cart-trigger-btn:hover svg { color: var(--gold); }
+.cart-badge {
+  position: absolute; top: 4px; right: 0px; background: #A00; color: var(--white);
+  font-size: 10px; font-weight: 700; height: 16px; min-width: 16px; padding: 0 4px;
+  border-radius: 20px; display: flex; align-items: center; justify-content: center; font-family: var(--font-utility);
+}
+
+/* =========================================================
+   FULL WIDTH SEARCH STRIP
+   ========================================================= */
+.search-strip {
+  position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+  background: var(--cream); z-index: 250;
+  display: flex; flex-direction: column; justify-content: center;
+  opacity: 0; visibility: hidden; transform: translateY(-10px);
+  transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+.search-strip.active {
+  opacity: 1; visibility: visible; transform: translateY(0);
+}
+.search-strip-inner {
+  max-width: var(--container); margin: 0 auto; padding: 0 40px;
+  width: 100%; display: flex; align-items: center; gap: 16px;
+  height: var(--nav-h);
+}
+.navbar.scrolled .search-strip-inner { height: 72px; }
+.search-strip-inner .search-icon { width: 22px; height: 22px; color: var(--navy); }
+.search-strip-inner input {
+  flex: 1; border: none; background: transparent; outline: none;
+  font-family: var(--font-utility); font-size: 18px; color: var(--navy);
+}
+.search-strip-inner input::placeholder { color: var(--ink-soft); opacity: 0.6; }
+.close-search-btn {
+  background: none; border: none; padding: 0; color: var(--navy); cursor: pointer;
+}
+.close-search-btn svg { width: 24px; height: 24px; }
+
+/* =========================================================
+   LIVE SEARCH DROPDOWN STYLES
+   ========================================================= */
+.live-search-results {
+  position: absolute; top: 100%; left: 0; right: 0;
+  max-width: var(--container); margin: 0 auto;
+  background: var(--white); border: 1px solid var(--line); border-top: none;
+  box-shadow: 0 16px 40px rgba(20,33,61,0.1); border-radius: 0 0 4px 4px;
+  opacity: 0; visibility: hidden; transform: translateY(-10px);
+  transition: all 0.25s cubic-bezier(0.25, 1, 0.5, 1);
+  max-height: 60vh; overflow-y: auto; z-index: 500;
+}
+.live-search-results.active {
+  opacity: 1; visibility: visible; transform: translateY(0);
+}
+.live-search-item {
+  display: flex; align-items: center; gap: 16px; padding: 14px 20px;
+  border-bottom: 1px solid var(--line); cursor: pointer; transition: background 0.2s ease;
+  text-decoration: none;
+}
+.live-search-item:last-child { border-bottom: none; }
+.live-search-item:hover { background: var(--cream); }
+.live-thumb {
+  width: 50px; height: 60px; background: var(--cream-deep);
+  display: flex; align-items: center; justify-content: center; overflow: hidden; border-radius: 2px;
+}
+.live-thumb img { width: 100%; height: 100%; object-fit: contain; }
+.live-info { flex: 1; }
+.live-info h4 {
+  margin: 0 0 4px; font-family: var(--font-display); font-size: 16px;
+  color: var(--navy); font-weight: 600; line-height: 1.2;
+}
+.live-info p {
+  margin: 0; font-family: var(--font-utility); font-size: 14px;
+  color: var(--gold); font-weight: 500;
+}
+.live-empty {
+  padding: 30px 20px; text-align: center; font-family: var(--font-utility);
+  font-size: 14px; letter-spacing: 0.05em; color: var(--ink-soft); text-transform: uppercase;
+}
+
+.brand-logo{
+  display:flex; align-items:center; justify-content:center; gap:10px;
+  font-family:var(--font-display); font-weight:800; font-size:30px; letter-spacing:0.04em;
+  color:var(--navy); justify-self:center;
+}
+
+.nav-right{ display:flex; align-items:center; justify-content:flex-end; gap:18px; }
+.authenticity-btn{
+  display:flex; align-items:center; gap:8px;
+  background:none; border:1px solid var(--gold); color:var(--navy);
+  font-family:var(--font-utility); font-size:11.5px; letter-spacing:0.08em; text-transform:uppercase;
+  padding:9px 14px; border-radius:2px; transition:all .2s ease;
+}
+.authenticity-btn svg{ width:16px; height:16px; color:var(--gold); flex-shrink:0; }
+.authenticity-btn:hover{ background:var(--gold); color:var(--navy-dark); }
+
+.hamburger{ display:none; background:none; border:none; flex-direction:column; gap:5px; padding:0; height:40px; justify-content:center; }
+.hamburger span{ width:24px; height:1.5px; background:var(--navy); }
+
+.mobile-nav{
+  position:fixed; inset:0; background:var(--cream); z-index:300;
+  display:flex; flex-direction:column; align-items:center; justify-content:center; gap:34px;
+  transform:translateY(-100%); transition:transform .35s ease;
+}
+.mobile-nav.open{ transform:translateY(0); }
+.mobile-nav a{ font-family:var(--font-display); font-size:26px; color:var(--navy); }
+
+/* =========================================================
+   HERO WITH FULL VIEWPORT COVER FLUIDITY
+   ========================================================= */
+.hero{
+  display:grid; grid-template-columns:1.05fr 0.95fr; min-height:800px;
+  background:var(--navy);
+}
+.hero-content{
+  display:flex; flex-direction:column; justify-content:center;
+  padding:80px 70px; color:var(--cream);
+}
+.hero-content .eyebrow{ color:var(--gold-light); }
+.hero-content h1{
+  font-family:var(--font-display); font-weight:800;
+  font-size:clamp(40px,5vw,60px); line-height:1.12; margin:18px 0 22px; max-width:560px;
+}
+.hero-content p{
+  font-size:19px; color:rgba(247,241,227,0.8); max-width:460px; margin:0 0 36px;
+}
+
+.hero-photo{
+  position:relative; overflow:hidden; background:var(--navy-dark);
+  width:100%; height:100%;
+}
+.hero-photo video.hero-loop {
+  width:100%; height:100%; object-fit:cover; position:absolute; inset:0;
+  pointer-events:none;
+}
+
+/* =========================================================
+   TRUST STRIP
+   ========================================================= */
+.trust-strip{
+  background:var(--cream-deep); border-bottom:1px solid var(--line);
+}
+.trust-strip .container{ display:grid; grid-template-columns:repeat(3,1fr); padding:36px 40px; }
+.trust-item{
+  display:flex; align-items:center; gap:14px; justify-content:center;
+  padding:0 20px; border-left:1px solid var(--line);
+  text-align:left;
+}
+.trust-item:first-child{ border-left:none; }
+.trust-item svg{ width:28px; height:28px; color:var(--gold); flex-shrink:0; }
+.trust-item h4{ margin:0 0 2px; font-family:var(--font-utility); font-size:13px; letter-spacing:0.05em; color:var(--navy); }
+.trust-item p{ margin:0; font-size:14px; color:var(--ink-soft); }
+
+/* =========================================================
+   2. PRODUCT ENGINE MATRIX
+   ========================================================= */
+.shop{ padding:20px 0 100px; background:var(--cream); }
+.product-grid{ 
+  display:grid; 
+  grid-template-columns:repeat(2, 1fr); 
+  gap:40px; 
+  max-width:860px; 
+  margin:0 auto; 
+}
+.product-card{ background:var(--white); border:1px solid var(--line); display:flex; flex-direction:column; transition:box-shadow .25s ease, transform .25s ease; }
+.product-card{ order: var(--sort-order, 0); }
+.product-card:hover{ box-shadow:0 22px 40px rgba(20,33,61,0.1); transform:translateY(-3px); }
+
+.product-image-container { display:flex; flex-direction:column; background:var(--white); border-bottom:1px solid var(--line); }
+.product-image{ position:relative; aspect-ratio:1/1.25; display:flex; align-items:center; justify-content:center; overflow:hidden; cursor:zoom-in; background:var(--white); }
+.product-image img.product-img-file { width:100%; height:100%; object-fit:contain; transition:transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94); transform-origin: center center; }
+.product-image:hover img.product-img-file { transform:scale(1.45); }
+
+.product-thumbnails { display:flex; gap:6px; padding:10px 14px; background:var(--cream-card); border-top:1px solid rgba(20,33,61,0.06); }
+.thumb-box { width:44px; height:52px; border:1px solid var(--line); background:var(--white); cursor:pointer; overflow:hidden; border-radius:1px; transition:all 0.2s ease; opacity:0.65; }
+.thumb-box img { width:100%; height:100%; object-fit:contain; }
+.thumb-box:hover, .thumb-box.active { opacity:1; border-color:var(--navy); box-shadow:0 0 0 1px var(--navy); }
+
+.product-info{ padding:20px 22px 26px; display:flex; flex-direction:column; gap:12px; flex:1; }
+.product-info .product-cat-row { display:flex; align-items:center; justify-content:space-between; }
+.product-info .product-cat{ font-family:var(--font-utility); font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:var(--gold); }
+.product-info .size-guide-link { font-family:var(--font-utility); font-size:11.5px; text-transform:uppercase; letter-spacing:0.05em; color:var(--ink-soft); text-decoration:underline; background:none; border:none; padding:0; }
+.product-info .size-guide-link:hover { color:var(--gold); }
+.product-info h3{ font-family:var(--font-display); font-size:20px; font-weight:600; color:var(--navy); margin:0; line-height:1.3; }
+.price-row{ display:flex; align-items:center; justify-content:space-between; margin-top:6px; }
+.price{ font-family:var(--font-display); font-size:21px; color:var(--navy); font-weight:700; }
+
+.size-selector-wrap { display:flex; flex-direction:column; gap:6px; margin-top:2px; }
+.size-selector-label { font-family:var(--font-utility); font-size:11px; letter-spacing:0.06em; text-transform:uppercase; color:var(--ink-soft); }
+.size-buttons{ display:flex; gap:8px; }
+.size-btn{ flex:1; height:36px; background:var(--cream); border:1px solid var(--line); font-family:var(--font-utility); font-size:12px; font-weight:500; color:var(--navy); display:flex; align-items:center; justify-content:center; transition:all 0.2s ease; border-radius:20px; }
+.size-btn:hover { border-color:var(--ink); }
+.size-btn.active{ background:#222; color:var(--white); border-color:#222; font-weight:600; }
+
+.search-empty-feedback { grid-column:1 / -1; text-align:center; padding:60px 20px; color:var(--ink-soft); font-family:var(--font-display); font-style:italic; font-size:22px; display:none; }
+
+/* =========================================================
+   OUR STORY
+   ========================================================= */
+.story{ background:var(--navy); color:var(--cream); display:grid; grid-template-columns:1fr 1fr; align-items:center; }
+.story-media{ position:relative; overflow:hidden; background:var(--navy-dark); min-height:520px; display:flex; align-items:center; justify-content:center; }
+.story-media video.story-loop { width:100%; height:100%; object-fit:cover; position:absolute; inset:0; pointer-events:none; }
+.story-content{ padding:90px 80px; }
+.story-content h2{ font-family:var(--font-display); font-size:clamp(30px,3.6vw,40px); margin:16px 0 22px; font-weight:700; }
+.story-content p{ color:rgba(247,241,227,0.85); font-size:18px; margin:0 0 20px; }
+
+footer{ background:var(--navy-dark); color:rgba(247,241,227,0.75); padding:80px 0 0; }
+.footer-grid{ display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr; gap:40px; padding-bottom:60px; border-bottom:1px solid rgba(247,241,227,0.12); }
+.footer-brand p{ font-size:15px; max-width:260px; line-height:1.7; }
+.footer-bottom{ display:flex; align-items:center; justify-content:space-between; padding:28px 0; font-family:var(--font-utility); font-size:12.5px; letter-spacing:0.04em; color:rgba(247,241,227,0.55); }
+
+/* =========================================================
+   OVERLAYS MODALS
+   ========================================================= */
+.sizeguide-backdrop, .auth-backdrop, .cart-backdrop {
+  position:fixed; inset:0; background:rgba(11,21,38,0.6); z-index:700;
+  display:flex; align-items:center; justify-content:center; padding:24px;
+  opacity:0; pointer-events:none; transition:opacity .3s ease;
+}
+.sizeguide-backdrop.open, .auth-backdrop.open, .cart-backdrop.open { opacity:1; pointer-events:auto; }
+.sizeguide-modal, .auth-modal{
+  background:var(--cream-card); max-width:500px; width:100%;
+  padding:40px 36px; border:1px solid var(--line); position:relative;
+  transform:scale(0.96); transition:transform 0.3s ease;
+}
+.auth-modal { max-width: 640px; padding:0; max-height:88vh; display:flex; flex-direction:column; }
+.sizeguide-backdrop.open .sizeguide-modal, .auth-backdrop.open .auth-modal{ transform:scale(1); }
+.sizeguide-header, .auth-modal-header { display:flex; justify-content:space-between; align-items:start; margin-bottom:8px; }
+.auth-modal-header { padding: 26px 30px 18px; border-bottom: 1px solid var(--line); text-align: center; }
+.sizeguide-header h3, .auth-modal-header h2 { font-family:var(--font-display); font-size:24px; margin:0; color:var(--navy); font-weight:600; }
+.auth-modal-header p { font-size: 14.5px; color: var(--ink-soft); margin: 6px 0 0; }
+.close-sizeguide, .close-auth { background:none; border:none; color:var(--ink-soft); padding:0; display:flex; cursor:pointer;}
+.close-auth { position:absolute; top:18px; right:18px; z-index:10; }
+.close-sizeguide svg, .close-auth svg { width:22px; height:22px; }
+
+.sizeguide-table { width:100%; border-collapse:collapse; margin-top:24px; text-align:left; }
+.sizeguide-table th { font-family:var(--font-utility); font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:var(--ink-soft); padding:12px 14px; border-bottom:1px solid var(--line); font-weight:500; background:rgba(20,33,61,0.02); }
+.sizeguide-table td { font-family:var(--font-utility); font-size:14px; padding:16px 14px; border-bottom:1px solid rgba(20,33,61,0.06); color:var(--ink); }
+.sizeguide-table td.size-lbl { font-weight:700; font-size:15px; color:var(--navy); }
+
+.auth-modal-body{ padding:24px 30px; overflow-y:auto; flex:1; }
+.auth-guide-content { color: var(--ink); padding: 0 30px 30px !important; }
+.auth-intro { background: var(--cream-deep); padding: 20px 24px; border-left: 3px solid var(--gold); margin-top: 24px; margin-bottom: 32px; border-radius: 0 2px 2px 0; }
+.auth-intro p { margin-bottom: 12px; color: var(--navy); font-size: 15px; }
+.auth-intro p:last-child { margin-bottom: 0; }
+.auth-guide-content h3 { font-family: var(--font-display); font-size: 22px; color: var(--navy); margin: 32px 0 16px; padding-bottom: 8px; border-bottom: 1px solid var(--line); }
+.auth-guide-content h4 { font-family: var(--font-utility); font-size: 14px; letter-spacing: 0.06em; color: var(--gold); margin: 24px 0 8px; text-transform: uppercase; }
+.auth-guide-content p { font-size: 15px; color: var(--ink-soft); margin: 0 0 16px; line-height: 1.6; }
+.auth-guide-content img { display: block; border-radius: 2px; margin: 12px 0 24px; border: 1px solid var(--line); box-shadow: 0 4px 12px rgba(20,33,61,0.06); }
+.auth-step-img { width: auto; max-width: 100%; height: 200px; object-fit: contain; }
+.auth-step-final { width: auto; max-width: 100%; max-height: 380px; object-fit: contain; }
+
+/* =========================================================
+   CART DRAWER UI & CONTROLS
+   ========================================================= */
+.cart-backdrop { z-index: 900; }
+.cart-drawer {
+  position: fixed; top: 0; right: 0; bottom: 0; width: 100%; max-width: 440px;
+  background: var(--cream); z-index: 901; display: flex; flex-direction: column;
+  transform: translateX(100%); transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+  box-shadow: -10px 0 40px rgba(11,21,38,0.1); border-left: 1px solid var(--line);
+}
+.cart-drawer.open { transform: translateX(0); }
+.cart-header { display: flex; justify-content: space-between; align-items: center; padding: 24px 30px; border-bottom: 1px solid var(--line); background: var(--white); }
+.cart-header h3 { margin: 0; font-family: var(--font-display); font-size: 24px; color: var(--navy); }
+.cart-body { flex: 1; overflow-y: auto; padding: 24px 30px; display: flex; flex-direction: column; gap: 24px; transition: opacity 0.2s ease; }
+.cart-footer { padding: 24px 30px; border-top: 1px solid var(--line); background: var(--white); }
+.cart-item { display: flex; gap: 16px; align-items: center; }
+.cart-item-img { width: 75px; height: 95px; background: var(--white); border: 1px solid var(--line); border-radius: 2px; overflow: hidden; flex-shrink: 0; }
+.cart-item-img img { width: 100%; height: 100%; object-fit: contain; }
+.cart-item-info { flex: 1; }
+.cart-item-title { font-family: var(--font-display); font-size: 16px; color: var(--navy); margin: 0 0 4px; line-height: 1.2; font-weight: 600; }
+.cart-item-variant { font-family: var(--font-utility); font-size: 12px; color: var(--ink-soft); margin: 0 0 4px; text-transform: uppercase; letter-spacing: 0.05em; }
+.cart-item-price { font-size: 15px; color: var(--navy); font-weight: 500; }
+
+.cart-qty-controls { display:flex; align-items:center; gap:8px; }
+.cart-qty-btn { 
+  background:var(--cream-card); border:1px solid var(--line); border-radius:2px; 
+  width:26px; height:26px; display:flex; align-items:center; justify-content:center; 
+  font-size:15px; cursor:pointer; color:var(--navy); transition:all 0.2s ease; padding:0;
+}
+.cart-qty-btn:hover { border-color:var(--navy); background:var(--white); }
+
+/* =========================================================
+   RESPONSIVE LAYOUT MATRIX
+   ========================================================= */
+@media (max-width:1024px){
+  .product-grid{ grid-template-columns:repeat(2, 1fr); gap:30px; }
+  .hero{ grid-template-columns:1fr; min-height:640px; }
+  .hero-photo { min-height:480px; }
+  .story{ grid-template-columns:1fr; }
+  .story-media{ min-height:300px; }
+  .story-content{ padding:60px 50px; }
+  .footer-grid{ grid-template-columns:1fr 1fr; }
+  .nav-inner { grid-template-columns: 1fr auto 1fr; }
+}
+@media (max-width:768px){
+  body{ font-size:17px; }
+  .container{ padding:0 24px; }
+  .nav-inner{ padding:0 20px; grid-template-columns: auto auto; }
+  .nav-links{ display:none; }
+  .search-strip-inner { padding: 0 20px; }
+  .search-strip-inner input { font-size: 16px; }
+  .authenticity-btn{ display:none; }
+  .hamburger{ display:flex; }
+  .brand-logo{ justify-self:start; font-size:24px; }
+  .product-grid{ grid-template-columns:1fr; gap:24px; }
+  .trust-strip .container{ grid-template-columns:1fr; gap: 20px; padding:24px; }
+  .trust-item{ border-left:none; justify-content: flex-start; }
+}
+</style>
+</head>
+<body>
+
+<div id="global-error" class="global-error-banner">We're having trouble connecting to our inventory system. Please try again shortly.</div>
+
+<div class="utility-bar">
+  <div class="marquee-track">
+    <span>100% Imported Original</span>
+    <span>Free Shipping on Orders Over Rs. 15,000</span>
+    <span>No Replicas</span>
+    <span>Authenticity Certified</span>
+    <span>100% Imported Original</span>
+    <span>Free Shipping on Orders Over Rs. 15,000</span>
+    <span>No Replicas</span>
+    <span>Authenticity Certified</span>
+  </div>
+</div>
+
+<nav class="navbar" id="navbar">
+  <div class="nav-inner">
+    <div class="nav-links" id="navLinksContainer">
+      <a href="#shop">Collection</a>
+      <a href="#story">Our Story</a>
+    </div>
+    <a href="#" class="brand-logo" aria-label="match home">match</a>
+    <div class="nav-right">
+      <button class="search-trigger-btn" onclick="openSearchStrip()" aria-label="Open search">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      </button>
+      
+      <!-- CART BUTTON IN NAV -->
+      <button class="cart-trigger-btn" onclick="openCart()" aria-label="Open cart">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+        <span class="cart-badge" id="cartBadge">0</span>
+      </button>
+
+      <button class="authenticity-btn" onclick="openAuthenticity()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3l7 3v6c0 5-3 8.5-7 9-4-0.5-7-4-7-9V6z"/><path d="M9 12l2 2 4-4"/></svg>
+        Check Authenticity
+      </button>
+      <button class="hamburger" onclick="openMobileMenu()" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+
+  <div class="search-strip" id="searchStrip">
+    <div class="search-strip-inner">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="search-icon"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input type="text" id="catalogSearch" placeholder="Search product name..." oninput="filterCatalogSearch()">
+      <button class="close-search-btn" onclick="closeSearchStrip()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><line x1="5" y1="5" x2="19" y2="19"/><line x1="19" y1="5" x2="5" y2="19"/></svg>
+      </button>
+    </div>
+    <div class="live-search-results" id="liveSearchResults"></div>
+  </div>
+</nav>
+
+<div class="mobile-nav" id="mobileNav">
+  <button class="close-mobile" onclick="closeMobileMenu()">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><line x1="5" y1="5" x2="19" y2="19"/><line x1="19" y1="5" x2="5" y2="19"/></svg>
+  </button>
+  <a href="#shop" onclick="closeMobileMenu()">Collection</a>
+  <a href="#story" onclick="closeMobileMenu()">Our Story</a>
+  <a href="#" onclick="closeMobileMenu(); openAuthenticity();">Check Authenticity</a>
+</div>
+
+<header class="hero">
+  <div class="hero-content">
+    <span class="eyebrow">The Heritage Linen Edit</span>
+    <h1>Timeless style,<br>tailored for every era.</h1>
+    <p>Every product is verified genuine and delivered exactly as created by the brand, complete with original labels, signature details, and uncompromised craftsmanship.</p>
+    <div class="hero-actions">
+      <a href="#shop" class="btn btn-gold">Discover the Collection</a>
+    </div>
+  </div>
+  <div class="hero-photo">
+    <video class="hero-loop" autoplay muted loop playsinline poster="https://ik.imagekit.io/match/img_2277_480.jpg" src="https://ik.imagekit.io/match/tikcdn_beubagah_com_90242089_bff3_4295_88f4_f50cea61fe14.mp4"></video>
+  </div>
+</header>
+
+<section class="trust-strip">
+  <div class="container">
+    <div class="trust-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 7h13v9H3z"/><path d="M16 10h3l2 3v3h-5z"/><circle cx="7.5" cy="18" r="1.6"/><circle cx="17.5" cy="18" r="1.6"/></svg>
+      <div><h4>Complimentary Shipping</h4><p>On every order over Rs. 15,000</p></div>
+    </div>
+    <div class="trust-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"/></svg>
+      <div><h4>Premium & Elegant</h4><p>Timeless Style. Genuine Craftsmanship.</p></div>
+    </div>
+    <div class="trust-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+      <div><h4>Authenticity-Focused</h4><p>Genuine Products, Guaranteed</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="shop" id="shop">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">The Wardrobe Edit</span>
+      <h2>Signature Collection</h2>
+      <p>Each article cut from premium fabrics, constructed with tailored precision.</p>
+      <div class="divider-mark"></div>
+    </div>
+
+    <div class="product-grid" id="productGrid">
+
+      <!-- PRODUCT 1: WHITE SHIRT -->
+      <article class="product-card" data-id="white-shirt" data-name="White Ralph Lauren Linen Shirt" data-price="9000" style="--sort-order: 1;">
+        <div class="product-image-container">
+          <div class="product-image">
+            <img class="product-img-file" id="main-img-white-shirt" src="https://shorelineshop.co/cdn/shop/files/IMG-2653.png?v=1780591809&width=823" alt="White Ralph Lauren Linen Shirt">
+          </div>
+          <div class="product-thumbnails">
+            <div class="thumb-box active" onclick="switchProductView('white-shirt', 'https://shorelineshop.co/cdn/shop/files/IMG-2653.png?v=1780591809&width=823', this)"><img src="https://shorelineshop.co/cdn/shop/files/IMG-2653.png?v=1780591809&width=823" alt="Angle 1"></div>
+            <div class="thumb-box" onclick="switchProductView('white-shirt', 'https://shorelineshop.co/cdn/shop/files/white1_35cf7578-c946-4a0b-b8c0-e9efa56df7c4.avif?v=1778594637&width=823', this)"><img src="https://shorelineshop.co/cdn/shop/files/white1_35cf7578-c946-4a0b-b8c0-e9efa56df7c4.avif?v=1778594637&width=823" alt="Angle 2"></div>
+            <div class="thumb-box" onclick="switchProductView('white-shirt', 'https://shorelineshop.co/cdn/shop/files/white2_51d696c9-2229-47f8-9d1d-db17719afd75.avif?v=1778594637&width=823', this)"><img src="https://shorelineshop.co/cdn/shop/files/white2_51d696c9-2229-47f8-9d1d-db17719afd75.avif?v=1778594637&width=823" alt="Angle 3"></div>
+          </div>
+        </div>
+        
+        <div class="product-info">
+          <div class="product-cat-row">
+            <span class="product-cat">Luxury Heritage</span>
+          </div>
+          <h3>White Ralph Lauren Linen Shirt</h3>
+          <div class="price-row"><span class="price">Rs. 9,000</span></div>
+          
+          <button class="size-guide-link" onclick="openSizeGuide()" style="margin: 12px 0 4px; text-align: left; display: flex; align-items: center; gap: 6px;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="width:16px; height:16px;"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
+            Size Guide
+          </button>
+
+          <div class="size-selector-wrap">
+            <span class="size-selector-label">Size</span>
+            <div class="size-buttons" id="size-options-white-shirt">
+              <span style="font-size: 12px; color: var(--ink-soft);">Connecting to Shopify Inventory...</span>
+            </div>
+          </div>
+
+          <div class="quantity-wrap" style="margin-top: 16px;">
+            <span class="size-selector-label" style="display:block; margin-bottom:6px;">Quantity</span>
+            <div style="display:inline-flex; align-items:center; border: 1px solid var(--line); border-radius: 4px; overflow:hidden;">
+              <button onclick="updateQty('white-shirt', -1)" style="background:var(--cream); border:none; padding:10px 16px; cursor:pointer;">−</button>
+              <input type="number" id="qty-white-shirt" value="1" min="1" style="width: 40px; text-align: center; border:none; background:transparent; font-family:var(--font-utility); font-size:15px; outline:none;" readonly>
+              <button onclick="updateQty('white-shirt', 1)" style="background:var(--cream); border:none; padding:10px 16px; cursor:pointer;">+</button>
+            </div>
+          </div>
+
+          <div class="action-buttons" style="display:flex; flex-direction:column; gap:10px; margin-top:24px;">
+            <button class="btn btn-secondary" onclick="addToCart('white-shirt')" id="add-btn-white-shirt" style="width:100%; padding: 14px; font-size: 14px; border-radius:4px; font-weight:600;">Add to Cart</button>
+            <button class="btn btn-primary" onclick="buyItNow('white-shirt')" id="btn-white-shirt" style="width:100%; padding: 14px; font-size: 14px; border-radius:4px; font-weight:600; background:#222; border-color:#222; margin-bottom: 4px;">Buy it now</button>
+            <p style="font-size:11px; color:var(--ink-soft); text-align:center; margin-top:-4px;">* Skips cart. Checks out this item only.</p>
+          </div>
+          <p id="error-white-shirt" style="color:#A00; font-size:12px; display:none; margin-top:8px;">Please select a size.</p>
+        </div>
+      </article>
+
+      <!-- PRODUCT 2: BLACK SHIRT -->
+      <article class="product-card" data-id="black-shirt" data-name="Ralph Lauren Black Linen Shirt" data-price="9000" style="--sort-order: 2;">
+        <div class="product-image-container">
+          <div class="product-image">
+            <img class="product-img-file" id="main-img-black-shirt" src="https://shorelineshop.co/cdn/shop/files/IMG-2652.png?v=1780591809&width=823" alt="Ralph Lauren Black Linen Shirt">
+          </div>
+          <div class="product-thumbnails">
+            <div class="thumb-box active" onclick="switchProductView('black-shirt', 'https://shorelineshop.co/cdn/shop/files/IMG-2652.png?v=1780591809&width=823', this)"><img src="https://shorelineshop.co/cdn/shop/files/IMG-2652.png?v=1780591809&width=823" alt="Angle 1"></div>
+            <div class="thumb-box" onclick="switchProductView('black-shirt', 'https://shorelineshop.co/cdn/shop/files/F831BE1F-9692-4028-9608-351E62CE7337.jpg?v=1780592034&width=823', this)"><img src="https://shorelineshop.co/cdn/shop/files/F831BE1F-9692-4028-9608-351E62CE7337.jpg?v=1780592034&width=823" alt="Angle 2"></div>
+            <div class="thumb-box" onclick="switchProductView('black-shirt', 'https://shorelineshop.co/cdn/shop/files/IMG-2651.png?v=1780591809&width=823', this)"><img src="https://shorelineshop.co/cdn/shop/files/IMG-2651.png?v=1780591809&width=823" alt="Angle 3"></div>
+          </div>
+        </div>
+        
+        <div class="product-info">
+          <div class="product-cat-row">
+            <span class="product-cat">Summer Edit</span>
+          </div>
+          <h3>Ralph Lauren Black Linen Shirt</h3>
+          <div class="price-row"><span class="price">Rs. 9,000</span></div>
+          
+          <button class="size-guide-link" onclick="openSizeGuide()" style="margin: 12px 0 4px; text-align: left; display: flex; align-items: center; gap: 6px;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="width:16px; height:16px;"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
+            Size Guide
+          </button>
+
+          <div class="size-selector-wrap">
+            <span class="size-selector-label">Size</span>
+            <div class="size-buttons" id="size-options-black-shirt">
+              <span style="font-size: 12px; color: var(--ink-soft);">Connecting to Shopify Inventory...</span>
+            </div>
+          </div>
+
+          <div class="quantity-wrap" style="margin-top: 16px;">
+            <span class="size-selector-label" style="display:block; margin-bottom:6px;">Quantity</span>
+            <div style="display:inline-flex; align-items:center; border: 1px solid var(--line); border-radius: 4px; overflow:hidden;">
+              <button onclick="updateQty('black-shirt', -1)" style="background:var(--cream); border:none; padding:10px 16px; cursor:pointer;">−</button>
+              <input type="number" id="qty-black-shirt" value="1" min="1" style="width: 40px; text-align: center; border:none; background:transparent; font-family:var(--font-utility); font-size:15px; outline:none;" readonly>
+              <button onclick="updateQty('black-shirt', 1)" style="background:var(--cream); border:none; padding:10px 16px; cursor:pointer;">+</button>
+            </div>
+          </div>
+
+          <div class="action-buttons" style="display:flex; flex-direction:column; gap:10px; margin-top:24px;">
+            <button class="btn btn-secondary" onclick="addToCart('black-shirt')" id="add-btn-black-shirt" style="width:100%; padding: 14px; font-size: 14px; border-radius:4px; font-weight:600;">Add to Cart</button>
+            <button class="btn btn-primary" onclick="buyItNow('black-shirt')" id="btn-black-shirt" style="width:100%; padding: 14px; font-size: 14px; border-radius:4px; font-weight:600; background:#222; border-color:#222; margin-bottom: 4px;">Buy it now</button>
+            <p style="font-size:11px; color:var(--ink-soft); text-align:center; margin-top:-4px;">* Skips cart. Checks out this item only.</p>
+          </div>
+          <p id="error-black-shirt" style="color:#A00; font-size:12px; display:none; margin-top:8px;">Please select a size.</p>
+        </div>
+      </article>
+
+      <!-- PRODUCT 3: NAVY BLUE OXFORD -->
+      <article class="product-card" data-id="navy-shirt" data-name="Ralph Lauren Navy Blue Oxford Cotton Shirt" data-price="9000" style="--sort-order: 3;">
+        <div class="product-image-container">
+          <div class="product-image">
+            <img class="product-img-file" id="main-img-navy-shirt" src="https://shorelineshop.co/cdn/shop/files/IMG-2654.png?v=1780591809&width=823" alt="Ralph Lauren Navy Blue Oxford Cotton Shirt">
+          </div>
+          <div class="product-thumbnails">
+            <div class="thumb-box active" onclick="switchProductView('navy-shirt', 'https://shorelineshop.co/cdn/shop/files/IMG-2654.png?v=1780591809&width=823', this)"><img src="https://shorelineshop.co/cdn/shop/files/IMG-2654.png?v=1780591809&width=823" alt="Angle 1"></div>
+            <div class="thumb-box" onclick="switchProductView('navy-shirt', 'https://shorelineshop.co/cdn/shop/files/navy3.avif?v=1778595260&width=823', this)"><img src="https://shorelineshop.co/cdn/shop/files/navy3.avif?v=1778595260&width=823" alt="Angle 2"></div>
+            <div class="thumb-box" onclick="switchProductView('navy-shirt', 'https://shorelineshop.co/cdn/shop/files/IMG-2655.png?v=1780591811&width=823', this)"><img src="https://shorelineshop.co/cdn/shop/files/IMG-2655.png?v=1780591811&width=823" alt="Angle 3"></div>
+          </div>
+        </div>
+        
+        <div class="product-info">
+          <div class="product-cat-row">
+            <span class="product-cat">Luxury Heritage</span>
+          </div>
+          <h3>Ralph Lauren Navy Blue Oxford Cotton Shirt</h3>
+          <div class="price-row"><span class="price">Rs. 9,000</span></div>
+          
+          <button class="size-guide-link" onclick="openSizeGuide()" style="margin: 12px 0 4px; text-align: left; display: flex; align-items: center; gap: 6px;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="width:16px; height:16px;"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
+            Size Guide
+          </button>
+
+          <div class="size-selector-wrap">
+            <span class="size-selector-label">Size</span>
+            <div class="size-buttons" id="size-options-navy-shirt">
+              <span style="font-size: 12px; color: var(--ink-soft);">Connecting to Shopify Inventory...</span>
+            </div>
+          </div>
+
+          <div class="quantity-wrap" style="margin-top: 16px;">
+            <span class="size-selector-label" style="display:block; margin-bottom:6px;">Quantity</span>
+            <div style="display:inline-flex; align-items:center; border: 1px solid var(--line); border-radius: 4px; overflow:hidden;">
+              <button onclick="updateQty('navy-shirt', -1)" style="background:var(--cream); border:none; padding:10px 16px; cursor:pointer;">−</button>
+              <input type="number" id="qty-navy-shirt" value="1" min="1" style="width: 40px; text-align: center; border:none; background:transparent; font-family:var(--font-utility); font-size:15px; outline:none;" readonly>
+              <button onclick="updateQty('navy-shirt', 1)" style="background:var(--cream); border:none; padding:10px 16px; cursor:pointer;">+</button>
+            </div>
+          </div>
+
+          <div class="action-buttons" style="display:flex; flex-direction:column; gap:10px; margin-top:24px;">
+            <button class="btn btn-secondary" onclick="addToCart('navy-shirt')" id="add-btn-navy-shirt" style="width:100%; padding: 14px; font-size: 14px; border-radius:4px; font-weight:600;">Add to Cart</button>
+            <button class="btn btn-primary" onclick="buyItNow('navy-shirt')" id="btn-navy-shirt" style="width:100%; padding: 14px; font-size: 14px; border-radius:4px; font-weight:600; background:#222; border-color:#222; margin-bottom: 4px;">Buy it now</button>
+            <p style="font-size:11px; color:var(--ink-soft); text-align:center; margin-top:-4px;">* Skips cart. Checks out this item only.</p>
+          </div>
+          <p id="error-navy-shirt" style="color:#A00; font-size:12px; display:none; margin-top:8px;">Please select a size.</p>
+        </div>
+      </article>
+
+      <!-- PRODUCT 4: STRIPED PINK -->
+      <article class="product-card" data-id="striped-pink" data-name="Ralph Lauren Oxford Cotton Striped Pink White Shirt" data-price="9000" style="--sort-order: 4;">
+        <div class="product-image-container">
+          <div class="product-image">
+            <img class="product-img-file" id="main-img-striped-pink" src="https://shorelineshop.co/cdn/shop/files/91.avif?v=1782732245&width=823" alt="Ralph Lauren Oxford Cotton Striped Pink White Shirt">
+          </div>
+          <div class="product-thumbnails">
+            <div class="thumb-box active" onclick="switchProductView('striped-pink', 'https://shorelineshop.co/cdn/shop/files/91.avif?v=1782732245&width=823', this)"><img src="https://shorelineshop.co/cdn/shop/files/91.avif?v=1782732245&width=823" alt="Angle 1"></div>
+            <div class="thumb-box" onclick="switchProductView('striped-pink', 'https://shorelineshop.co/cdn/shop/files/92.avif?v=1782732245&width=823', this)"><img src="https://shorelineshop.co/cdn/shop/files/92.avif?v=1782732245&width=823" alt="Angle 2"></div>
+            <div class="thumb-box" onclick="switchProductView('striped-pink', 'https://shorelineshop.co/cdn/shop/files/93.avif?v=1782732245&width=823', this)"><img src="https://shorelineshop.co/cdn/shop/files/93.avif?v=1782732245&width=823" alt="Angle 3"></div>
+          </div>
+        </div>
+        
+        <div class="product-info">
+          <div class="product-cat-row">
+            <span class="product-cat">Luxury Heritage</span>
+          </div>
+          <h3>Ralph Lauren Oxford Cotton Striped Pink White Shirt</h3>
+          <div class="price-row"><span class="price">Rs. 9,000</span></div>
+          
+          <button class="size-guide-link" onclick="openSizeGuide()" style="margin: 12px 0 4px; text-align: left; display: flex; align-items: center; gap: 6px;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="width:16px; height:16px;"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
+            Size Guide
+          </button>
+
+          <div class="size-selector-wrap">
+            <span class="size-selector-label">Size</span>
+            <div class="size-buttons" id="size-options-striped-pink">
+              <span style="font-size: 12px; color: var(--ink-soft);">Connecting to Shopify Inventory...</span>
+            </div>
+          </div>
+
+          <div class="quantity-wrap" style="margin-top: 16px;">
+            <span class="size-selector-label" style="display:block; margin-bottom:6px;">Quantity</span>
+            <div style="display:inline-flex; align-items:center; border: 1px solid var(--line); border-radius: 4px; overflow:hidden;">
+              <button onclick="updateQty('striped-pink', -1)" style="background:var(--cream); border:none; padding:10px 16px; cursor:pointer;">−</button>
+              <input type="number" id="qty-striped-pink" value="1" min="1" style="width: 40px; text-align: center; border:none; background:transparent; font-family:var(--font-utility); font-size:15px; outline:none;" readonly>
+              <button onclick="updateQty('striped-pink', 1)" style="background:var(--cream); border:none; padding:10px 16px; cursor:pointer;">+</button>
+            </div>
+          </div>
+
+          <div class="action-buttons" style="display:flex; flex-direction:column; gap:10px; margin-top:24px;">
+            <button class="btn btn-secondary" onclick="addToCart('striped-pink')" id="add-btn-striped-pink" style="width:100%; padding: 14px; font-size: 14px; border-radius:4px; font-weight:600;">Add to Cart</button>
+            <button class="btn btn-primary" onclick="buyItNow('striped-pink')" id="btn-striped-pink" style="width:100%; padding: 14px; font-size: 14px; border-radius:4px; font-weight:600; background:#222; border-color:#222; margin-bottom: 4px;">Buy it now</button>
+            <p style="font-size:11px; color:var(--ink-soft); text-align:center; margin-top:-4px;">* Skips cart. Checks out this item only.</p>
+          </div>
+          <p id="error-striped-pink" style="color:#A00; font-size:12px; display:none; margin-top:8px;">Please select a size.</p>
+        </div>
+      </article>
+
+      <!-- PRODUCT 5: PINK OXFORD -->
+      <article class="product-card" data-id="pink-oxford" data-name="Ralph Lauren Pink Oxford Cotton Shirt" data-price="9000" style="--sort-order: 5;">
+        <div class="product-image-container">
+          <div class="product-image">
+            <img class="product-img-file" id="main-img-pink-oxford" src="https://shorelineshop.co/cdn/shop/files/121.avif?v=1782736191&width=823" alt="Ralph Lauren Pink Oxford Cotton Shirt">
+          </div>
+          <div class="product-thumbnails">
+            <div class="thumb-box active" onclick="switchProductView('pink-oxford', 'https://shorelineshop.co/cdn/shop/files/121.avif?v=1782736191&width=823', this)"><img src="https://shorelineshop.co/cdn/shop/files/121.avif?v=1782736191&width=823" alt="Angle 1"></div>
+            <div class="thumb-box" onclick="switchProductView('pink-oxford', 'https://shorelineshop.co/cdn/shop/files/122.avif?v=1782736191&width=823', this)"><img src="https://shorelineshop.co/cdn/shop/files/122.avif?v=1782736191&width=823" alt="Angle 2"></div>
+            <div class="thumb-box" onclick="switchProductView('pink-oxford', 'https://shorelineshop.co/cdn/shop/files/123.avif?v=1782736191&width=823', this)"><img src="https://shorelineshop.co/cdn/shop/files/123.avif?v=1782736191&width=823" alt="Angle 3"></div>
+          </div>
+        </div>
+        
+        <div class="product-info">
+          <div class="product-cat-row">
+            <span class="product-cat">Luxury Heritage</span>
+          </div>
+          <h3>Ralph Lauren Pink Oxford Cotton Shirt</h3>
+          <div class="price-row"><span class="price">Rs. 9,000</span></div>
+          
+          <button class="size-guide-link" onclick="openSizeGuide()" style="margin: 12px 0 4px; text-align: left; display: flex; align-items: center; gap: 6px;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="width:16px; height:16px;"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
+            Size Guide
+          </button>
+
+          <div class="size-selector-wrap">
+            <span class="size-selector-label">Size</span>
+            <div class="size-buttons" id="size-options-pink-oxford">
+              <span style="font-size: 12px; color: var(--ink-soft);">Connecting to Shopify Inventory...</span>
+            </div>
+          </div>
+
+          <div class="quantity-wrap" style="margin-top: 16px;">
+            <span class="size-selector-label" style="display:block; margin-bottom:6px;">Quantity</span>
+            <div style="display:inline-flex; align-items:center; border: 1px solid var(--line); border-radius: 4px; overflow:hidden;">
+              <button onclick="updateQty('pink-oxford', -1)" style="background:var(--cream); border:none; padding:10px 16px; cursor:pointer;">−</button>
+              <input type="number" id="qty-pink-oxford" value="1" min="1" style="width: 40px; text-align: center; border:none; background:transparent; font-family:var(--font-utility); font-size:15px; outline:none;" readonly>
+              <button onclick="updateQty('pink-oxford', 1)" style="background:var(--cream); border:none; padding:10px 16px; cursor:pointer;">+</button>
+            </div>
+          </div>
+
+          <div class="action-buttons" style="display:flex; flex-direction:column; gap:10px; margin-top:24px;">
+            <button class="btn btn-secondary" onclick="addToCart('pink-oxford')" id="add-btn-pink-oxford" style="width:100%; padding: 14px; font-size: 14px; border-radius:4px; font-weight:600;">Add to Cart</button>
+            <button class="btn btn-primary" onclick="buyItNow('pink-oxford')" id="btn-pink-oxford" style="width:100%; padding: 14px; font-size: 14px; border-radius:4px; font-weight:600; background:#222; border-color:#222; margin-bottom: 4px;">Buy it now</button>
+            <p style="font-size:11px; color:var(--ink-soft); text-align:center; margin-top:-4px;">* Skips cart. Checks out this item only.</p>
+          </div>
+          <p id="error-pink-oxford" style="color:#A00; font-size:12px; display:none; margin-top:8px;">Please select a size.</p>
+        </div>
+      </article>
+
+      <div id="searchEmptyState" class="search-empty-feedback">No matching garments found.</div>
+    </div>
+  </div>
+</section>
+
+<section class="story" id="story">
+  <div class="story-media">
+    <video class="story-loop" autoplay muted loop playsinline src="https://ik.imagekit.io/match/tikcdn_beubagah_com_90242089_bff3_4295_88f4_f50cea61fe14.mp4?updatedAt=1782080536439"></video>
+  </div>
+  <div class="story-content">
+    <h2>Our Story</h2>
+    <p>MATCH was founded by a Gen Z guy with a strong passion for timeless old money style and a deep respect for authentic quality.</p>
+    <p>Frustrated by how many replicas and low quality items were being sold in the market, he decided to use trusted sourcing channels abroad to build something more reliable and honest.</p>
+    <p>Today, every piece we offer is carefully checked and verified before it reaches you. We only deal in genuine Ralph Lauren products with no replicas and no shortcuts, just authentic quality you can trust.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <p>Heritage premium tailoring, crafted with quiet quality.</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 match. All rights reserved.</span>
+    </div>
+  </div>
+</footer>
+
+<div class="sizeguide-backdrop" id="sizeGuideBackdrop" onclick="closeSizeGuide()">
+  <div class="sizeguide-modal" onclick="event.stopPropagation()">
+    <div class="sizeguide-header">
+      <div>
+        <h3>Size Guide</h3>
+        <p>Ralph Lauren — Slim Fit Measurements</p>
+      </div>
+      <button class="close-sizeguide" onclick="closeSizeGuide()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><line x1="5" y1="5" x2="19" y2="19"/><line x1="19" y1="5" x2="5" y2="19"/></svg>
+      </button>
+    </div>
+    <table class="sizeguide-table">
+      <thead><tr><th>Size</th><th>Chest (In)</th><th>Length (In)</th></tr></thead>
+      <tbody>
+        <tr><td class="size-lbl">S</td><td>18</td><td>28</td></tr>
+        <tr><td class="size-lbl">M</td><td>20</td><td>29</td></tr>
+        <tr><td class="size-lbl">L</td><td>21</td><td>30</td></tr>
+        <tr><td class="size-lbl">XL</td><td>22.5</td><td>31</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="auth-backdrop" id="authBackdrop" onclick="closeAuthenticity()">
+  <div class="auth-modal" onclick="event.stopPropagation()">
+    <button class="close-auth" onclick="closeAuthenticity()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><line x1="5" y1="5" x2="19" y2="19"/><line x1="19" y1="5" x2="5" y2="19"/></svg>
+    </button>
+    <div class="auth-modal-header">
+      <h2>Authenticity Guarantee</h2>
+      <p>Verified Original Products</p>
+    </div>
+    <div class="auth-modal-body auth-guide-content">
+      <div class="auth-intro">
+        <p>At Match, authenticity is our top priority. We only sell genuine, original products and never deal in replicas, copies, or counterfeit items.</p>
+        <p>Every product goes through a quality and authenticity inspection before it is approved for sale on Match.</p>
+      </div>
+      
+      <h3>How to Verify Your Ralph Lauren Shirt</h3>
+      
+      <h4>Step 1 – Find the QR Code</h4>
+      <p>Look inside the collar of your shirt, behind the size tag. You will find a unique QR code label attached to the garment.</p>
+      <img src="https://ik.imagekit.io/match/img_2277_480.jpg" alt="Ralph Lauren Collar Size Tag" class="auth-step-img">
+      
+      <h4>Step 2 – Scan the QR Code</h4>
+      <p>Open your phone's camera and make sure the lens is clean and focused. Point the camera at the QR code and wait for the official Ralph Lauren verification link to appear.</p>
+      <img src="https://ik.imagekit.io/match/img_2279_480.jpg" alt="Ralph Lauren QR Code Tag" class="auth-step-img">
+      
+      <h4>Step 3 – Confirm Authenticity</h4>
+      <p>Tap the link that appears to open the official Ralph Lauren authentication page. There, you can verify your product through the brand’s verification system.</p>
+      <img src="https://ik.imagekit.io/match/img_2276.jpg" alt="Ralph Lauren Authentication Page" class="auth-step-final">
+      
+      <p style="margin-top: 24px; font-weight: 500; color: var(--navy);">Each shirt comes with genuine brand labels, authentic details, and an original QR authentication tag.</p>
+
+      <div style="background: var(--cream); padding: 20px; border-left: 3px solid var(--navy); margin-top: 32px; border-radius: 0 4px 4px 0;">
+        <h4 style="margin-top: 0; margin-bottom: 12px; color: var(--navy); font-size: 16px;">If the QR Code Does Not Work</h4>
+        <p style="margin-bottom: 12px; font-size: 14.5px;">In rare cases, the QR code may not open a link because of a minor printing or tag issue. This is uncommon and does not affect the authenticity of the product.</p>
+        <p style="margin-bottom: 12px; font-size: 14.5px;">For the best scanning results, make sure your camera lens is clean and properly focused. If the QR code still does not work, you can manually type the official website address printed on the tag into your browser.</p>
+        <p style="margin-bottom: 0; font-size: 14.5px;">Rest assured, every item we sell is authentic and sourced from trusted international suppliers, export surplus channels, and carefully selected premium inventories from around the world.</p>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- CART DRAWER UI -->
+<div class="cart-backdrop" id="cartBackdrop" onclick="closeCart()"></div>
+<div class="cart-drawer" id="cartDrawer">
+  <div class="cart-header">
+    <h3>Your Cart</h3>
+    <button class="close-auth" onclick="closeCart()" style="position:static;">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><line x1="5" y1="5" x2="19" y2="19"/><line x1="19" y1="5" x2="5" y2="19"/></svg>
+    </button>
+  </div>
+  <div class="cart-body" id="cartBody">
+    <p style="text-align:center; color:var(--ink-soft); margin-top:40px; font-size:15px;">Your cart is empty.</p>
+  </div>
+  <div class="cart-footer">
+    <div style="display:flex; justify-content:space-between; margin-bottom:16px; font-family:var(--font-display); font-size:20px; color:var(--navy); font-weight:600;">
+      <span>Subtotal</span>
+      <span id="cartSubtotal">Rs. 0</span>
+    </div>
+    <p style="font-size:13px; color:var(--ink-soft); margin-top:0; margin-bottom:16px;">Shipping & taxes calculated at checkout.</p>
+    <button class="btn btn-primary btn-block" id="cartCheckoutBtn" onclick="goToCartCheckout()" style="padding:16px; font-size:15px;" disabled>Proceed to Checkout</button>
+  </div>
+</div>
+
+
+<!-- =========================================================
+     SHOPIFY HEADLESS ENGINE (STOREFRONT API) + PERSISTENT CART
+     ========================================================= -->
+<script>
+  // 1. Core API Config
+  const shopDomain = 'njkgcj-b5.myshopify.com';
+  const storefrontToken = 'a59605708026f0c6a6f4b4f151b0224c';
+  
+  // 2. Map Your HTML blocks to your Shopify Product IDs
+  const productsConfig = [
+    { localId: 'white-shirt', shopifyId: 'gid://shopify/Product/8615898874048' },
+    { localId: 'black-shirt', shopifyId: 'gid://shopify/Product/8627568246976' },
+    { localId: 'navy-shirt', shopifyId: 'gid://shopify/Product/8615900348608' },
+    { localId: 'striped-pink', shopifyId: 'gid://shopify/Product/8650997432512' },
+    { localId: 'pink-oxford', shopifyId: 'gid://shopify/Product/8650998350016' }
+  ];
+
+  // 3. Application State
+  const productState = {
+    'white-shirt': { variants: [], selected: null },
+    'black-shirt': { variants: [], selected: null },
+    'navy-shirt': { variants: [], selected: null },
+    'striped-pink': { variants: [], selected: null },
+    'pink-oxford': { variants: [], selected: null }
+  };
+
+  let globalCartId = localStorage.getItem('match_cart_id') || null;
+  let globalCheckoutUrl = null;
+
+  // Helper function to talk to Shopify's GraphQL API with timeout boundary
+  async function shopifyAPI(query, variables = {}) {
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 8000); // 8 second timeout
+
+    try {
+      const res = await fetch(`https://${shopDomain}/api/2024-01/graphql.json`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'X-Shopify-Storefront-Access-Token': storefrontToken
+        },
+        body: JSON.stringify({ query, variables }),
+        signal: controller.signal
+      });
+      clearTimeout(timeoutId);
+      return res.json();
+    } catch (err) {
+      clearTimeout(timeoutId);
+      document.getElementById('global-error').style.display = 'block';
+      throw err;
+    }
+  }
+
+  // Fetch Inventory for all products AT THE SAME TIME (Parallel loading)
+  async function loadAllInventory() {
+    const query = `
+      query getProduct($id: ID!) {
+        product(id: $id) {
+          variants(first: 10) {
+            edges { node { id title availableForSale } }
+          }
+        }
+      }
+    `;
+
+    const fetchPromises = productsConfig.map(async (item) => {
+      try {
+        const data = await shopifyAPI(query, { id: item.shopifyId });
+        productState[item.localId].variants = data.data.product.variants.edges.map(e => e.node);
+        renderSizes(item.localId);
+      } catch (err) {
+        console.error("Failed to load: " + item.localId, err);
+        document.getElementById(`size-options-${item.localId}`).innerHTML = 
+          '<span style="color: #A00; font-size: 12px;">Failed to load inventory. Please refresh.</span>';
+      }
+    });
+
+    await Promise.all(fetchPromises);
+  }
+
+  // Check LocalStorage to see if customer already has a cart
+  async function initCart() {
+    if (globalCartId) {
+      await fetchCartData();
+    }
+  }
+
+  // Draw the custom size pills based on real Shopify data
+  function renderSizes(localId) {
+    const container = document.getElementById(`size-options-${localId}`);
+    container.innerHTML = ''; 
+    
+    productState[localId].variants.forEach(variant => {
+      const btn = document.createElement('button');
+      btn.className = 'size-btn';
+      btn.innerText = variant.title;
+      
+      if (!variant.availableForSale) {
+        btn.style.textDecoration = 'line-through';
+        btn.style.opacity = '0.4';
+        btn.disabled = true;
+      } else {
+        btn.onclick = () => {
+          container.querySelectorAll('.size-btn').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          productState[localId].selected = variant.id;
+          document.getElementById(`error-${localId}`).style.display = 'none';
+        };
+      }
+      container.appendChild(btn);
+    });
+  }
+
+  function updateQty(localId, change) {
+    const input = document.getElementById(`qty-${localId}`);
+    let newVal = parseInt(input.value) + change;
+    if (newVal >= 1) input.value = newVal;
+  }
+
+  function resetButton(btn, text) {
+    btn.innerText = text;
+    btn.style.opacity = '1';
+    btn.disabled = false;
+  }
+
+  // BUY IT NOW BUTTON (Bypasses Main Cart for instant checkout of a single item)
+  async function buyItNow(localId) {
+    const selectedVariantId = productState[localId].selected;
+    if (!selectedVariantId) {
+      document.getElementById(`error-${localId}`).style.display = 'block';
+      return;
+    }
+    
+    const btn = document.getElementById(`btn-${localId}`);
+    const originalText = btn.innerText;
+    btn.innerText = 'Securing checkout...';
+    btn.style.opacity = '0.7';
+    btn.disabled = true;
+
+    const mutation = `
+      mutation cartCreate($input: CartInput!) {
+        cartCreate(input: $input) {
+          cart { checkoutUrl }
+          userErrors { field message }
+        }
+      }
+    `;
+    
+    const qty = parseInt(document.getElementById(`qty-${localId}`).value);
+    
+    try {
+      const result = await shopifyAPI(mutation, {
+        input: { lines: [{ merchandiseId: selectedVariantId, quantity: qty }] }
+      });
+      
+      if (result.errors || (result.data && result.data.cartCreate.userErrors.length > 0)) {
+        const errorMsg = result.errors ? result.errors[0].message : result.data.cartCreate.userErrors[0].message;
+        alert("Shopify Error: " + errorMsg);
+        resetButton(btn, originalText);
+        return;
+      }
+
+      window.location.href = result.data.cartCreate.cart.checkoutUrl;
+    } catch (e) {
+      alert("Checkout connection timeout or error. Check console.");
+      resetButton(btn, originalText);
+    }
+  }
+
+  // ADD TO CART BUTTON (Builds the persistent Drawer Cart)
+  async function addToCart(localId) {
+    const selectedVariantId = productState[localId].selected;
+    if (!selectedVariantId) {
+      document.getElementById(`error-${localId}`).style.display = 'block';
+      return;
+    }
+
+    const btn = document.getElementById(`add-btn-${localId}`);
+    const originalText = btn.innerText;
+    btn.innerText = 'Adding...';
+    btn.style.opacity = '0.7';
+    btn.disabled = true;
+
+    const qtyInput = document.getElementById(`qty-${localId}`);
+    const qty = parseInt(qtyInput.value);
+
+    try {
+      if (!globalCartId) {
+        // Create new cart
+        const mutation = `
+          mutation cartCreate($input: CartInput!) {
+            cartCreate(input: $input) { cart { id } }
+          }
+        `;
+        const res = await shopifyAPI(mutation, { input: { lines: [{ merchandiseId: selectedVariantId, quantity: qty }] } });
+        globalCartId = res.data.cartCreate.cart.id;
+        localStorage.setItem('match_cart_id', globalCartId);
+      } else {
+        // Add to existing cart
+        const mutation = `
+          mutation cartLinesAdd($cartId: ID!, $lines: [CartLineInput!]!) {
+            cartLinesAdd(cartId: $cartId, lines: $lines) { cart { id } }
+          }
+        `;
+        await shopifyAPI(mutation, { cartId: globalCartId, lines: [{ merchandiseId: selectedVariantId, quantity: qty }] });
+      }
+
+      await fetchCartData();
+      openCart();
+
+      // Reset selection and quantity after successful add
+      qtyInput.value = 1;
+      const sizeContainer = document.getElementById(`size-options-${localId}`);
+      sizeContainer.querySelectorAll('.size-btn').forEach(b => b.classList.remove('active'));
+      productState[localId].selected = null;
+
+    } catch (e) {
+      console.error("Add to cart error", e);
+      alert("Error adding to cart.");
+    } finally {
+      resetButton(btn, originalText);
+    }
+  }
+
+  // UPDATE CART ITEM QUANTITY FROM DRAWER
+  async function updateCartItemQty(lineId, newQty) {
+    const body = document.getElementById('cartBody');
+    body.style.opacity = '0.5';
+    body.style.pointerEvents = 'none';
+
+    try {
+      if (newQty <= 0) {
+        const mutation = `
+          mutation cartLinesRemove($cartId: ID!, $lineIds: [ID!]!) {
+            cartLinesRemove(cartId: $cartId, lineIds: $lineIds) { cart { id } }
+          }
+        `;
+        await shopifyAPI(mutation, { cartId: globalCartId, lineIds: [lineId] });
+      } else {
+        const mutation = `
+          mutation cartLinesUpdate($cartId: ID!, $lines: [CartLineUpdateInput!]!) {
+            cartLinesUpdate(cartId: $cartId, lines: $lines) { cart { id } }
+          }
+        `;
+        await shopifyAPI(mutation, { cartId: globalCartId, lines: [{ id: lineId, quantity: newQty }] });
+      }
+      
+      await fetchCartData();
+    } catch(e) {
+      console.error("Error updating cart quantity", e);
+      alert("Error updating quantity.");
+    } finally {
+      body.style.opacity = '1';
+      body.style.pointerEvents = 'auto';
+    }
+  }
+
+  // FETCH & RENDER THE CART DRAWER
+  async function fetchCartData() {
+    const query = `
+      query getCart($id: ID!) {
+        cart(id: $id) {
+          id checkoutUrl totalQuantity
+          cost { subtotalAmount { amount } }
+          lines(first: 100) {
+            edges {
+              node {
+                id
+                quantity
+                merchandise {
+                  ... on ProductVariant {
+                    title price { amount }
+                    image { url }
+                    product { id title }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    `;
+    try {
+      const res = await shopifyAPI(query, { id: globalCartId });
+      if (res.data && res.data.cart) {
+         renderCartDrawer(res.data.cart);
+      } else {
+         // Cart expired or was checked out
+         globalCartId = null;
+         localStorage.removeItem('match_cart_id');
+         document.getElementById('cartBadge').innerText = '0';
+         renderCartDrawer({ lines: { edges: [] }, cost: { subtotalAmount: { amount: 0 } }, totalQuantity: 0 });
+         document.getElementById('cartBody').innerHTML = '<p style="text-align:center; color:var(--ink-soft); margin-top:40px; font-size:15px;">Your session expired. Cart is empty.</p>';
+      }
+    } catch(e) { console.error("Error fetching cart", e); }
+  }
+
+  function renderCartDrawer(cart) {
+    globalCheckoutUrl = cart.checkoutUrl;
+    document.getElementById('cartBadge').innerText = cart.totalQuantity;
+    
+    const body = document.getElementById('cartBody');
+    const subtotalLabel = document.getElementById('cartSubtotal');
+    const checkoutBtn = document.getElementById('cartCheckoutBtn');
+
+    subtotalLabel.innerText = 'Rs. ' + formatRs(cart.cost.subtotalAmount.amount);
+
+    if (cart.lines.edges.length === 0) {
+      body.innerHTML = '<p style="text-align:center; color:var(--ink-soft); margin-top:40px; font-size:15px;">Your cart is empty.</p>';
+      checkoutBtn.disabled = true;
+      return;
+    }
+
+    checkoutBtn.disabled = false;
+    let html = '';
+    cart.lines.edges.forEach(edge => {
+      const line = edge.node;
+      const lineId = line.id;
+      const title = line.merchandise.product.title;
+      const size = line.merchandise.title;
+      const price = line.merchandise.price.amount;
+      
+      // Pull image directly from the local HTML config instead of Shopify API
+      const productId = line.merchandise.product.id;
+      const configItem = productsConfig.find(p => p.shopifyId === productId);
+      let imgUrl = '';
+      if (configItem) {
+        const imgEl = document.getElementById('main-img-' + configItem.localId);
+        if (imgEl) imgUrl = imgEl.src;
+      }
+      
+      html += `
+        <div class="cart-item">
+          <div class="cart-item-img"><img src="${imgUrl}" alt="${title}"></div>
+          <div class="cart-item-info">
+            <h4 class="cart-item-title">${title}</h4>
+            <p class="cart-item-variant">Size: ${size}</p>
+            <div style="display:flex; align-items:center; justify-content:space-between; margin-top:8px;">
+              <div class="cart-qty-controls">
+                <button class="cart-qty-btn" onclick="updateCartItemQty('${lineId}', ${line.quantity - 1})">−</button>
+                <span style="font-family:var(--font-utility); font-size:14px; font-weight:500; min-width:16px; text-align:center;">${line.quantity}</span>
+                <button class="cart-qty-btn" onclick="updateCartItemQty('${lineId}', ${line.quantity + 1})">+</button>
+              </div>
+              <div class="cart-item-price">Rs. ${formatRs(price)}</div>
+            </div>
+          </div>
+        </div>
+      `;
+    });
+    body.innerHTML = html;
+  }
+
+  function openCart() {
+    document.getElementById('cartBackdrop').classList.add('open');
+    document.getElementById('cartDrawer').classList.add('open');
+  }
+  function closeCart() {
+    document.getElementById('cartBackdrop').classList.remove('open');
+    document.getElementById('cartDrawer').classList.remove('open');
+  }
+  function goToCartCheckout() {
+    if (globalCheckoutUrl) window.location.href = globalCheckoutUrl;
+  }
+
+  // Start the engine
+  loadAllInventory();
+  initCart();
+
+  // Escape key global listener for modals
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') {
+      closeSearchStrip();
+      closeCart();
+      closeAuthenticity();
+      closeSizeGuide();
+    }
+  });
+</script>
+
+<script>
+/* =========================================================
+   UI & SEARCH STATE LOGIC 
+   ========================================================= */
+function formatRs(amount){ return Math.round(amount).toLocaleString('en-US'); }
+
+function openSearchStrip() {
+  document.getElementById('searchStrip').classList.add('active');
+  setTimeout(() => document.getElementById('catalogSearch').focus(), 100);
+}
+
+function closeSearchStrip() {
+  document.getElementById('searchStrip').classList.remove('active');
+  document.getElementById('liveSearchResults').classList.remove('active');
+  document.getElementById('catalogSearch').value = '';
+  document.querySelectorAll('.product-card').forEach(card => card.style.display = '');
+  document.getElementById('searchEmptyState').style.display = 'none';
+}
+
+function filterCatalogSearch() {
+  const query = document.getElementById('catalogSearch').value.toLowerCase().trim();
+  const productCards = document.querySelectorAll('.product-card');
+  const resultsContainer = document.getElementById('liveSearchResults');
+  
+  let matchedCount = 0;
+  let liveHTML = '';
+
+  if (query.length === 0) {
+    resultsContainer.classList.remove('active');
+    productCards.forEach(card => card.style.display = '');
+    document.getElementById('searchEmptyState').style.display = 'none';
+    return;
+  }
+
+  productCards.forEach(card => {
+    const rawName = card.dataset.name;
+    const productName = rawName.toLowerCase();
+    const productPrice = card.dataset.price;
+    const productId = card.dataset.id;
+    const imgSrc = card.querySelector('.product-img-file').src;
+
+    if (productName.includes(query)) {
+      card.style.display = '';
+      matchedCount++;
+      liveHTML += `
+        <a href="#shop" class="live-search-item" onclick="closeSearchAndScroll('${productId}')">
+          <div class="live-thumb"><img src="${imgSrc}" alt="${rawName}"></div>
+          <div class="live-info">
+            <h4>${rawName}</h4>
+            <p>Rs. ${formatRs(productPrice)}</p>
+          </div>
+        </a>`;
+    } else { card.style.display = 'none'; }
+  });
+
+  document.getElementById('searchEmptyState').style.display = (matchedCount === 0) ? 'block' : 'none';
+  resultsContainer.innerHTML = (matchedCount === 0) ? `<div class="live-empty">No matching products found.</div>` : liveHTML;
+  resultsContainer.classList.add('active');
+}
+
+function closeSearchAndScroll(productId) {
+   closeSearchStrip();
+   const target = document.querySelector(`[data-id="${productId}"]`);
+   if(target) {
+      const yOffset = -120; 
+      const y = target.getBoundingClientRect().top + window.pageYOffset + yOffset;
+      window.scrollTo({top: y, behavior: 'smooth'});
+   }
+}
+
+function switchProductView(productId, newImgSrc, thumbElement) {
+  const targetImg = document.getElementById('main-img-' + productId);
+  if(targetImg) { targetImg.src = newImgSrc; }
+  const parentGrid = thumbElement.closest('.product-thumbnails');
+  parentGrid.querySelectorAll('.thumb-box').forEach(box => box.classList.remove('active'));
+  thumbElement.classList.add('active');
+}
+
+function openMobileMenu(){ document.getElementById('mobileNav').classList.add('open'); }
+function closeMobileMenu(){ document.getElementById('mobileNav').classList.remove('open'); }
+function openAuthenticity(){ document.getElementById('authBackdrop').classList.add('open'); }
+function closeAuthenticity(){ document.getElementById('authBackdrop').classList.remove('open'); }
+function openSizeGuide(){ document.getElementById('sizeGuideBackdrop').classList.add('open'); }
+function closeSizeGuide(){ document.getElementById('sizeGuideBackdrop').classList.remove('open'); }
+
+document.querySelectorAll('.product-image').forEach(frame => {
+  frame.addEventListener('mousemove', (e) => {
+    const targetImage = frame.querySelector('img'); if(!targetImage) return; 
+    const bounds = frame.getBoundingClientRect();
+    const xFraction = (e.clientX - bounds.left) / bounds.width;
+    const yFraction = (e.clientY - bounds.top) / bounds.height;
+    targetImage.style.transformOrigin = `${xFraction * 100}% ${yFraction * 100}%`;
+  });
+  frame.addEventListener('mouseleave', (e) => {
+    const targetImage = frame.querySelector('img'); if(targetImage) targetImage.style.transformOrigin = 'center center';
+  });
+});
+</script>
+
+</body>
+</html>
