@@ -324,12 +324,12 @@ section{ scroll-margin-top: var(--nav-h); }
 
 .product-image-container { display:flex; flex-direction:column; background:var(--white); border-bottom:1px solid var(--line); }
 .product-image{ position:relative; aspect-ratio:1/1.25; display:flex; align-items:center; justify-content:center; overflow:hidden; cursor:zoom-in; background:var(--white); }
-.product-image img.product-img-file { width:100%; height:100%; object-fit:contain; transition:transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94); transform-origin: center center; }
+.product-image img.product-img-file { width:100%; height:100%; object-fit:cover; object-position:center 20%; transition:transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94); transform-origin: center center; }
 .product-image:hover img.product-img-file { transform:scale(1.45); }
 
-.product-thumbnails { display:flex; gap:6px; padding:10px 14px; background:var(--cream-card); border-top:1px solid rgba(20,33,61,0.06); }
-.thumb-box { width:44px; height:52px; border:1px solid var(--line); background:var(--white); cursor:pointer; overflow:hidden; border-radius:1px; transition:all 0.2s ease; opacity:0.65; }
-.thumb-box img { width:100%; height:100%; object-fit:contain; }
+.product-thumbnails { display:flex; gap:6px; padding:10px 14px; background:var(--cream-card); border-top:1px solid rgba(20,33,61,0.06); overflow-x:auto; }
+.thumb-box { width:44px; height:52px; border:1px solid var(--line); background:var(--white); cursor:pointer; overflow:hidden; border-radius:1px; transition:all 0.2s ease; opacity:0.65; flex-shrink:0; }
+.thumb-box img { width:100%; height:100%; object-fit:cover; object-position:center 20%; }
 .thumb-box:hover, .thumb-box.active { opacity:1; border-color:var(--navy); box-shadow:0 0 0 1px var(--navy); }
 
 .product-info{ padding:20px 22px 26px; display:flex; flex-direction:column; gap:12px; flex:1; }
@@ -778,12 +778,15 @@ footer{ background:var(--navy-dark); color:rgba(247,241,227,0.75); padding:80px 
       <article class="product-card" data-id="pink-oxford" data-name="Ralph Lauren Pink Oxford Cotton Shirt" data-price="9000" style="--sort-order: 5;">
         <div class="product-image-container">
           <div class="product-image">
-            <img class="product-img-file" id="main-img-pink-oxford" src="https://shorelineshop.co/cdn/shop/files/121.avif?v=1782736191&width=823" alt="Ralph Lauren Pink Oxford Cotton Shirt">
+            <img class="product-img-file" id="main-img-pink-oxford" src="https://img2.ans-media.com/i/1400x2100/AA00-KDD06G-38X_F2.avif?v=1776181118" alt="Ralph Lauren Pink Oxford Cotton Shirt">
           </div>
           <div class="product-thumbnails">
-            <div class="thumb-box active" onclick="switchProductView('pink-oxford', 'https://shorelineshop.co/cdn/shop/files/121.avif?v=1782736191&width=823', this)"><img src="https://shorelineshop.co/cdn/shop/files/121.avif?v=1782736191&width=823" alt="Angle 1"></div>
-            <div class="thumb-box" onclick="switchProductView('pink-oxford', 'https://shorelineshop.co/cdn/shop/files/122.avif?v=1782736191&width=823', this)"><img src="https://shorelineshop.co/cdn/shop/files/122.avif?v=1782736191&width=823" alt="Angle 2"></div>
-            <div class="thumb-box" onclick="switchProductView('pink-oxford', 'https://shorelineshop.co/cdn/shop/files/123.avif?v=1782736191&width=823', this)"><img src="https://shorelineshop.co/cdn/shop/files/123.avif?v=1782736191&width=823" alt="Angle 3"></div>
+            <div class="thumb-box active" onclick="switchProductView('pink-oxford', 'https://img2.ans-media.com/i/1400x2100/AA00-KDD06G-38X_F2.avif?v=1776181118', this)"><img src="https://img2.ans-media.com/i/1400x2100/AA00-KDD06G-38X_F2.avif?v=1776181118" alt="Angle 1"></div>
+            <div class="thumb-box" onclick="switchProductView('pink-oxford', 'https://img2.ans-media.com/i/1400x2100/AA00-KDD06G-38X_F4.avif?v=1776181237', this)"><img src="https://img2.ans-media.com/i/1400x2100/AA00-KDD06G-38X_F4.avif?v=1776181237" alt="Angle 2"></div>
+            <div class="thumb-box" onclick="switchProductView('pink-oxford', 'https://img2.ans-media.com/i/1400x2100/AA00-KDD06G-38X_F5.avif?v=1776181237', this)"><img src="https://img2.ans-media.com/i/1400x2100/AA00-KDD06G-38X_F5.avif?v=1776181237" alt="Angle 3"></div>
+            <div class="thumb-box" onclick="switchProductView('pink-oxford', 'https://slimages.macysassets.com/is/image/MCY/products/6/optimized/30844786_fpx.tif?op_sharpen=1&wid=1500&fit=fit%2C1&fmt=webp', this)"><img src="https://slimages.macysassets.com/is/image/MCY/products/6/optimized/30844786_fpx.tif?op_sharpen=1&wid=1500&fit=fit%2C1&fmt=webp" alt="Angle 4"></div>
+            <div class="thumb-box" onclick="switchProductView('pink-oxford', 'https://slimages.macysassets.com/is/image/MCY/products/8/optimized/30844788_fpx.tif?op_sharpen=1&wid=1500&fit=fit%2C1&fmt=webp', this)"><img src="https://slimages.macysassets.com/is/image/MCY/products/8/optimized/30844788_fpx.tif?op_sharpen=1&wid=1500&fit=fit%2C1&fmt=webp" alt="Angle 5"></div>
+            <div class="thumb-box" onclick="switchProductView('pink-oxford', 'https://slimages.macysassets.com/is/image/MCY/products/0/optimized/30844790_fpx.tif?op_sharpen=1&wid=1500&fit=fit%2C1&fmt=webp', this)"><img src="https://slimages.macysassets.com/is/image/MCY/products/0/optimized/30844790_fpx.tif?op_sharpen=1&wid=1500&fit=fit%2C1&fmt=webp" alt="Angle 6"></div>
           </div>
         </div>
         
@@ -1415,7 +1418,7 @@ document.querySelectorAll('.product-image').forEach(frame => {
     targetImage.style.transformOrigin = `${xFraction * 100}% ${yFraction * 100}%`;
   });
   frame.addEventListener('mouseleave', (e) => {
-    const targetImage = frame.querySelector('img'); if(targetImage) targetImage.style.transformOrigin = 'center center';
+    const targetImage = frame.querySelector('img'); if(targetImage) targetImage.style.transformOrigin = 'top center';
   });
 });
 </script>
