@@ -866,6 +866,9 @@ footer{ background:var(--navy-dark); color:rgba(247,241,227,0.75); padding:80px 
       <div class="footer-brand">
         <p>Heritage premium tailoring, crafted with quiet quality.</p>
       </div>
+      <div class="footer-links">
+        <a href="#" onclick="openReturns(); return false;" style="font-family:var(--font-utility); font-size:14px; color:rgba(247,241,227,0.85); text-decoration:underline; text-transform:uppercase; letter-spacing:0.05em;">Returns & Exchanges Policy</a>
+      </div>
     </div>
     <div class="footer-bottom">
       <span>© 2026 match. All rights reserved.</span>
@@ -934,6 +937,44 @@ footer{ background:var(--navy-dark); color:rgba(247,241,227,0.75); padding:80px 
         <p style="margin-bottom: 0; font-size: 14.5px;">Rest assured, every item we sell is authentic and sourced from trusted international suppliers, export surplus channels, and carefully selected premium inventories from around the world.</p>
       </div>
 
+    </div>
+  </div>
+</div>
+
+<div class="auth-backdrop" id="returnsBackdrop" onclick="closeReturns()">
+  <div class="auth-modal" onclick="event.stopPropagation()">
+    <button class="close-auth" onclick="closeReturns()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><line x1="5" y1="5" x2="19" y2="19"/><line x1="19" y1="5" x2="5" y2="19"/></svg>
+    </button>
+    <div class="auth-modal-header">
+      <h2>Returns & Exchanges</h2>
+      <p>Policy & Requirements</p>
+    </div>
+    <div class="auth-modal-body auth-guide-content">
+      <p style="margin-top: 24px;">Returns and exchanges are accepted within <strong>5 days</strong> of receiving your order in the following cases:</p>
+      <ul style="color: var(--ink-soft); font-size: 15px; margin-bottom: 24px; line-height: 1.6; padding-left: 20px;">
+        <li><strong>Incorrect size sent by our team</strong> — we will cover the return delivery cost</li>
+        <li><strong>Wrong item delivered</strong> — we will cover the return delivery cost</li>
+        <li><strong>Damaged or defective product</strong> — we will cover the return delivery cost</li>
+      </ul>
+      
+      <h3>Change of Mind / Quality Concerns</h3>
+      <p>If you wish to exchange an item because you are not satisfied with the quality or have simply changed your mind, you will need to courier the item back to us at your own cost.</p>
+      <p>If you wish to return an item for these reasons, a <strong>20% deduction</strong> will apply to the refund, and the return courier cost will be your responsibility.</p>
+      <p>If a replacement piece is available, we will arrange an exchange accordingly. If the requested item is no longer available, a refund may be issued after the returned item has been inspected and approved.</p>
+
+      <h3>Return & Exchange Requirements</h3>
+      <p>To qualify for a return or exchange:</p>
+      <ul style="color: var(--ink-soft); font-size: 15px; margin-bottom: 24px; line-height: 1.6; padding-left: 20px;">
+        <li>The item must be unworn and unused</li>
+        <li>Original tags must still be attached</li>
+        <li>Original packaging must be included</li>
+        <li>The product must be returned in its original condition</li>
+      </ul>
+      
+      <div style="background: var(--cream); padding: 16px; border-left: 3px solid #A00; margin-top: 16px; border-radius: 0 4px 4px 0;">
+        <p style="margin-bottom: 0; font-size: 14px; color: var(--navy);">Items showing signs of wear, washing, damage, or missing tags/packaging may not qualify for return or exchange approval.</p>
+      </div>
     </div>
   </div>
 </div>
@@ -1336,6 +1377,7 @@ footer{ background:var(--navy-dark); color:rgba(247,241,227,0.75); padding:80px 
       closeCart();
       closeAuthenticity();
       closeSizeGuide();
+      closeReturns();
     }
   });
 </script>
@@ -1424,6 +1466,8 @@ function openAuthenticity(){ document.getElementById('authBackdrop').classList.a
 function closeAuthenticity(){ document.getElementById('authBackdrop').classList.remove('open'); }
 function openSizeGuide(){ document.getElementById('sizeGuideBackdrop').classList.add('open'); }
 function closeSizeGuide(){ document.getElementById('sizeGuideBackdrop').classList.remove('open'); }
+function openReturns(){ document.getElementById('returnsBackdrop').classList.add('open'); }
+function closeReturns(){ document.getElementById('returnsBackdrop').classList.remove('open'); }
 
 document.querySelectorAll('.product-image').forEach(frame => {
   frame.addEventListener('mousemove', (e) => {
